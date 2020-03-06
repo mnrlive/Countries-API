@@ -89,18 +89,18 @@ class App extends Component {
     this.setState({
       searchValue: e.target.value,
     })
-    let actualCountriesList = [];
-    let newCountriesList = [];
-    if (e.target.value !== "") {
-      actualCountriesList = this.state.countriesAll;
-      newCountriesList = actualCountriesList.filter(country => {
+    let actualCountriesList = []; //aktualna lista krajów
+    let newCountriesList = []; //nowa lista, którą następnie będzie tablica filtered
+    if (e.target.value !== "") {//jeśli zostało coś wpisane
+      actualCountriesList = this.state.countriesAll; //aktualna lista krajów równa się tablicy krajów z api (mogą być z wszystkich krajów, bądź jeśli została wybrana jakaś opcja z danego regionu)
+      newCountriesList = actualCountriesList.filter(country => { //filtrowanie, jeśli jakiś kraj zawiera wpisaną frazę to go zwróć, toLowerCase() jest zastosowane, żeby porównywany kraj i wartość z inputa miały małe litery, żeby nie wystąpił konflikt
         return country.name.toLowerCase().includes(e.target.value.toLocaleLowerCase());
       })
     } else {
-      newCountriesList = this.state.countriesAll;
+      newCountriesList = this.state.countriesAll; //jeśli nic nie zostało wpisane to nowa lista posiada wartość z api
     }
     this.setState({
-      filtered: newCountriesList,
+      filtered: newCountriesList, //tablica filtered ma teraz wartość newCountriesList, czyli nowej tablicy
     });
   }
 
@@ -125,6 +125,8 @@ class App extends Component {
             <option value="oceania">Oceania</option>
           </select>
         </label>
+        {/* Warunek 1 jeśli dane jeszcze się nie załadowały, to niech wyświetli się napis Loading */}
+        {/* Warunek 2 jeśli tablica pofiltrowana jest pusta (bo nic nie ma w inpucie, bądź została wybrana jakaś opcja z droplisty) to wyświetl tablicę countries (czyli bezpośrednio z api), jeśli filtered nie jest puste to wyświetl kraje pofiltrowane */}
         {this.state.isLoaded ? <Countries countriesAll={this.state.filtered === "" ? this.state.countriesAll : this.state.filtered} /> : "Loading"}
       </div>
     );
