@@ -50,7 +50,6 @@ class App extends Component {
 
 
   render() {
-    console.log(this.state.countriesAll)
     const routeCountries = this.state.countriesAll.map((country, index) => (
       <Route exact path={`/${country.alpha3Code}`} key={index}
         render={() => <Country countryAll={this.state.countriesAll} flag={country.flag} name={country.name} nativeName={country.nativeName} population={country.population}
@@ -64,14 +63,9 @@ class App extends Component {
           <div className="App">
             <Header />
             <Switch>
-              <Route exact path="/" render={() => <Home countriesAll={this.state.countriesAll} />} //zeby country wyswietlalo odpowiednie panstwo zwiazane z linkiem
+              <Route exact path="/" render={() => <Home />}
               />
               {routeCountries}
-              {/*               <Route exact path="/"
-                render={() => <Country />} //zeby country wyswietlalo odpowiednie panstwo zwiazane z linkiem
-              /> */}
-              {/* <Route exact path="./" component={Home} /> */}
-              {/* {routeCountries} */}
             </Switch>
           </div>
         </>
