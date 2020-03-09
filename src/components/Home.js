@@ -90,7 +90,6 @@ class Home extends Component {
     }
 
     render() {
-        console.log(this.props.countriesAll)
         return (
             <div className='home'>
                 <p>Rest Countries</p>
@@ -117,11 +116,3 @@ class Home extends Component {
 }
 
 export default Home;
-
-/* const Home = () => {
-    return (
-        <p>GroveStreet</p>
-    );
-}
-
-export default Home; */
