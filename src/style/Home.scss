@@ -1,0 +1,23 @@
+@import "../style/App.scss";
+
+
+/* .home {
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+} */
+
+.filter {
+    padding: 2.5rem 0;
+    display: inline-block;
+    //justify-content: space-between;
+    //align-items: center;
+
+    &__search {
+        background-color: $white;
+        padding: 1rem;
+        //width: 30%;
+        border: 1px solid $white;
+        border-radius: 1%;
+        box-shadow: 1rem 1rem 4rem rgba($veryDarkBlue, .20);
+    }
+}
