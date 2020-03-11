@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { BrowserRouter as NavLink } from 'react-router-dom';
 import Countries from '../components/Countries';
+import '../style/Home.scss'
 class Home extends Component {
     state = {
         countriesAll: [],
@@ -92,21 +93,22 @@ class Home extends Component {
     render() {
         return (
             <div className='home'>
-                <p>Rest Countries</p>
-                <input type="text" placeholder="Search Country" value={this.state.searchValue} onChange={this.handleSearchCountry} />
-                <label htmlFor="lang">
-                    <NavLink to="./">
-                        <select id="lang" onChange={this.handleChangeRegion} value={this.state.option}>
-                            {/* <option value="all" disabled selected>Filter by Region</option> */}
-                            <option value="all">Filter by Region</option>
-                            <option value="africa">Africa</option>
-                            <option value="americas">America</option>
-                            <option value="asia">Asia</option>
-                            <option value="europe">Europe</option>
-                            <option value="oceania">Oceania</option>
-                        </select>
-                    </NavLink>
-                </label>
+                <div className="filter">
+                    <input className="filter__search" type="text" placeholder="Search Country" value={this.state.searchValue} onChange={this.handleSearchCountry} />
+                    <label htmlFor="lang">
+                        <NavLink to="./">
+                            <select id="lang" onChange={this.handleChangeRegion} value={this.state.option}>
+                                <option value="all">Filter by Region</option>
+                                <option value="africa">Africa</option>
+                                <option value="americas">America</option>
+                                <option value="asia">Asia</option>
+                                <option value="europe">Europe</option>
+                                <option value="oceania">Oceania</option>
+                            </select>
+                        </NavLink>
+                    </label>
+                </div>
+
                 {/* Warunek 1 jeśli dane jeszcze się nie załadowały, to niech wyświetli się napis Loading */}
                 {/* Warunek 2 jeśli tablica pofiltrowana jest pusta (bo nic nie ma w inpucie, bądź została wybrana jakaś opcja z droplisty) to wyświetl tablicę countries (czyli bezpośrednio z api), jeśli filtered nie jest puste to wyświetl kraje pofiltrowane */}
                 {this.state.isLoaded ? <Countries countriesAll={this.state.filtered === "" ? this.state.countriesAll : this.state.filtered} /> : "Loading"}
