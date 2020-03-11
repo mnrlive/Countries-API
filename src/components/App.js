@@ -25,7 +25,7 @@ class App extends Component {
     countriesAll: [],
   }
 
-  //
+
   componentDidMount() {
     fetch('https://restcountries.eu/rest/v2/all')
       .then(response => {
@@ -52,24 +52,27 @@ class App extends Component {
   render() {
     const routeCountries = this.state.countriesAll.map((country, index) => (
       <Route exact path={`/${country.alpha3Code}`} key={index}
-        render={() => <Country countryAll={this.state.countriesAll} flag={country.flag} name={country.name} nativeName={country.nativeName} population={country.population}
+        render={() => <main className="main main--country"><Country countryAll={this.state.countriesAll} flag={country.flag} name={country.name} nativeName={country.nativeName} population={country.population}
           region={country.region} subRegion={country.subregion} capital={country.capital} topLevelDomain={country.topLevelDomain} currencies={country.currencies} languages={country.languages} borders={country.borders}
-        />} //zeby country wyswietlalo odpowiednie panstwo zwiazane z linkiem
+        /></main>} //zeby country wyswietlalo odpowiednie panstwo zwiazane z linkiem
       />
     ))
     return (
       <Router>
         <>
           <div className="App">
-            <Header />
-            <Switch>
-              <Route exact path="/" render={() => <Home />}
-              />
-              {routeCountries}
-            </Switch>
+            <div className="container">
+              <Header />
+
+              <Switch>
+                <Route exact path="/" render={() => <main className="main main--home"><Home /> </main>}
+                />
+                {routeCountries}
+              </Switch>
+            </div>
           </div>
         </>
-      </Router>
+      </Router >
     );
   }
 }
