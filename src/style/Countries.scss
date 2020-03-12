@@ -3,10 +3,22 @@
 .countries-container {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(20rem, 30rem));
-    grid-gap: 7rem;
-    justify-content: center;
+    //gap: 8.5rem;
+    gap: 3rem;
+    /*     justify-content: center;
+    align-items: center; */
+    justify-content: space-between;
     align-items: center;
-    height: 40vw;
+    //height: 40vw;
+
+    @media only screen and (max-width: 742px) {
+        justify-content: center;
+    }
+
+    @media only screen and (max-width: 686px) {
+        grid-template-columns: repeat(auto-fit, minmax(20rem, 35rem));
+    }
+
 }
 
 .countryCard {
@@ -18,6 +30,10 @@
     overflow: hidden;
     background-color: $white;
     box-shadow: 1rem 1rem 4rem rgba($veryDarkBlue, .20);
+
+    @media only screen and (max-width: 686px) {
+        grid-template-rows: 23rem minmax(10rem, 20rem);
+    }
 
     &__flag {
         grid-row: 1/2;
