@@ -6,7 +6,89 @@
     grid-template-columns: repeat(8, 1fr);
 } */
 
+.home {
+    padding: 3rem;
+}
+
 .filter {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    padding-bottom: 3rem;
+
+    @media only screen and (max-width: 768px) {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    &__searchPanel {
+        display: flex;
+        align-items: center;
+        padding-left: 1.5rem;
+        width: 50rem;
+
+        @media only screen and (max-width: 686px) {
+            width: 100%;
+        }
+    }
+
+    &__searchInput {
+        width: 90%;
+        background-color: $white;
+        padding: 1.5rem;
+        padding-left: 4rem;
+        border: 0;
+        border-radius: .3rem;
+        box-shadow: 1rem 1rem 4rem rgba($veryDarkBlue, .20);
+        margin-left: -3rem;
+        font-family: inherit;
+        color: inherit;
+        font-size: 1.6rem;
+        transition: 1s;
+
+        &::placeholder {
+            color: $darkGray;
+        }
+
+        &:focus {
+            width: 100%;
+            outline: 0;
+        }
+    }
+
+    &__icon {
+        position: relative;
+        z-index: 100;
+        //w celu poradzenia sobie z fill bez przekazywania props, narazie jest szary, ale klikniecia darkMode, powoduje, ze wszystkie elementy zyskuja kolor bialy wiec color z darkGray zmienia sie na white i fill przyjmuje white
+        color: $darkGray;
+        fill: currentColor;
+    }
+
+    &__selectPanel {
+        display: flex;
+        justify-content: flex-end;
+
+        @media only screen and (max-width: 768px) {
+            justify-content: flex-start;
+        }
+    }
+
+    &__selectLabel {
+        width: 20rem;
+        outline: 0;
+        padding: 1.5rem;
+        background-color: $white;
+        font-family: inherit;
+        color: inherit;
+        font-size: 1.6rem;
+        border: 0;
+        border-radius: .3rem;
+        box-shadow: 1rem 1rem 4rem rgba($veryDarkBlue, .20);
+        //appearance: none; // pozbycie sie strzalki
+    }
+
+}
+
+/* .filter {
     padding: 2.5rem 0;
     display: inline-block;
     //justify-content: space-between;
@@ -18,5 +100,5 @@
         border: 1px solid $white;
         border-radius: 1%;
         box-shadow: 1rem 1rem 4rem rgba($veryDarkBlue, .20);
-    }
-}
+    } 
+}*/
