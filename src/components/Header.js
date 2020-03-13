@@ -18,7 +18,7 @@ class Header extends Component {
         console.log(this.state.darkMode);
         return (
             <>
-                {this.state.darkMode ? <style>{'body { background-color: hsl(207, 26%, 17%); } * {color:hsl(0, 0%, 100%);} .header {background-color: hsl(209, 23%, 22%)} .countryCard__description, .filter__selectLabel, .filter__searchInput {background-color: hsl(209, 23%, 22%)}'}</style> : null}
+                {this.state.darkMode ? <style>{'body { background-color: hsl(207, 26%, 17%); } * {color:hsl(0, 0%, 100%);} .header {background-color: hsl(209, 23%, 22%)} .countryCard__description, .filter__selectLabel, .filter__searchInput, .btn{background-color: hsl(209, 23%, 22%)} *:active{color:hsl(0, 0%, 100%);}'}</style> : null}
                 <header className="header">
                     <h1 className="header__logo">Where in the world?</h1>
                     {/* <svg className="darkLightmode__icon"> */}
