@@ -34,7 +34,7 @@ const Country = (props) => {
             </div>
             <div className="country-details">
                 <div className="country-details__flag">
-                    <img className="country-details__flagImg" src={props.flag} alt="" width="50" height="50" />
+                    <img className="country-details__flagImg" src={props.flag} alt={`${props.name} flag`} />
                 </div>
                 <div className="country-details__info">
                     <h1 className="country-details__headingPrimary">{props.name}</h1>
@@ -67,7 +67,6 @@ const Country = (props) => {
                         </ul>
                     </ul>
                     <ul className="info-list info-list--partThree">
-
                         <ul className="info-list__borders">
                             <h4>Border Countries:</h4>
                             {borders}
