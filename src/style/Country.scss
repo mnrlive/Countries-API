@@ -32,17 +32,11 @@
     display: grid;
     //grid-template-columns: repeat(2, 1fr);
     grid-template-columns: minmax(10rem, 55rem);
-    //grid-template-columns: 50rem repeat(auto-fit, minmax(10rem, 55rem));
-    //grid-template-columns: minmax(40rem, 50rem) minmax(10rem, 50rem);
     grid-template-areas: "flag info";
-    gap: calc(.1rem + 10rem);
-    //gap: 10rem;
-    //calc(1rem + .96vw);
-    //justify-content: space-between;
-    //align-items: center;
+    gap: 10rem;
 
     @media only screen and (max-width: 1100px) {
-        grid-template-columns: 1fr;
+        //grid-template-columns: 1fr;
         grid-template-areas: "flag""info";
         justify-content: center;
         gap: 5rem;
@@ -50,7 +44,7 @@
 
     &__flag {
         grid-area: flag;
-        //min-width: 50rem;
+        align-self: center;
     }
 
     &__flagImg {
@@ -58,38 +52,35 @@
         height: 100%;
         box-shadow: 0rem 0rem 1rem .3rem rgba($veryDarkBlue, .50);
         object-fit: cover;
+
+        @media only screen and (max-width: 1400px) {
+            height: auto;
+        }
     }
 
     &__info {
         grid-area: info;
         display: grid;
         grid-template-columns: repeat(2, 1fr);
-        //grid-template-columns: repeat(2, 30rem);
-        //grid-template-columns: minmax(20rem, 30rem) minmax(10rem, 40rem);
-        //grid-template-columns: minmax(10rem, 30rem) 1fr;
-        //grid-template-rows: 5rem;
         grid-template-rows: auto;
         grid-template-areas: ". .""infoPartOne infoPartTwo""infoPartThree infoPartThree";
-        gap: 1.5rem;
+        row-gap: 1.5rem;
         align-content: center;
 
-        //justify-content: center;
-        //padding: 3rem 0;
-        @media only screen and (max-width: 1300px) {
-            grid-template-columns: 1fr;
+        @media only screen and (max-width: 1100px) {
             grid-template-areas: ". .""infoPartOne infoPartOne""infoPartTwo infoPartTwo""infoPartThree infoPartThree";
         }
     }
 
     &__headingPrimary {
-        //font-size: 3rem;
         font-size: calc(1rem + .96vw);
         white-space: nowrap;
 
-        //padding-bottom: 1rem;
         @media only screen and (max-width: 1100px) {
             font-size: 3rem;
             padding-bottom: 1rem;
+            font-size: calc(1rem + 2.5vw);
+            white-space: normal;
         }
     }
 
@@ -110,11 +101,11 @@
 }
 
 .info-list {
-    //font-size: 1.6rem;
     font-size: calc(1rem + .40vw);
 
     @media only screen and (max-width: 1100px) {
         font-size: 2rem;
+        font-size: calc(1rem + 2vw);
     }
 
     &--partOne {
@@ -142,24 +133,8 @@
         display: flex;
     }
 
-    &__borders-container {
-        //display: flex;
-        //display: grid;
-        //white-space: nowrap;
-        //grid-template-columns: repeat(auto-fit, minmax(10rem, 15rem));
-
-        //grid-template-columns: repeat(auto-fit, minmax(5rem, 8rem));
-        //gap: 2rem;
-        //align-items: center;
-
-    }
 
     &__borders {
-        /*         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(5rem, 8rem));
-        gap: 2rem;
-        align-items: center; */
-
 
         display: flex;
         flex-flow: row;
@@ -188,10 +163,11 @@
 
 .btn {
     &--borders {
-        padding: 1rem 3rem;
+        padding: .5rem 3rem;
 
         @media only screen and (max-width: 1100px) {
             font-size: 2rem;
+            font-size: calc(1rem + 2vw);
         }
 
     }
