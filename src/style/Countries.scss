@@ -30,6 +30,12 @@
     overflow: hidden;
     background-color: $white;
     box-shadow: 1rem 1rem 4rem rgba($veryDarkBlue, .20);
+    backface-visibility: hidden;
+    transition: ease-in-out .2s;
+
+    &:hover {
+        transform: scale(1.1);
+    }
 
     @media only screen and (max-width: 686px) {
         grid-template-rows: 23rem minmax(10rem, 20rem);
@@ -48,6 +54,7 @@
     &__description {
         grid-row: 2/3;
         padding: 1rem;
+        border-top: 1px solid black;
     }
 
     &__primary {
@@ -61,6 +68,7 @@
         flex-direction: column;
         align-self: center;
         font-size: 1.6rem;
+        font-weight: 600;
     }
 
     &__item {
