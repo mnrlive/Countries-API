@@ -31,6 +31,11 @@ $white: hsl(0, 0%, 100%); //(Dark Mode Text & Light Mode Elements)
     color: $veryDarkBlue2;
 }
 
+*:focus {
+    outline: none !important; //usunięcie niebieskiego obromowania w chrome przy wcisnieciu przycisku
+}
+
+
 .btn {
     border: 0px;
     background-color: $white;
@@ -38,6 +43,17 @@ $white: hsl(0, 0%, 100%); //(Dark Mode Text & Light Mode Elements)
     border-radius: .3rem;
     box-shadow: 0rem 0rem .5rem .2rem rgba($veryDarkBlue, .40);
     cursor: pointer;
+    font-family: inherit;
+    font-weight: 600;
+    transition: ease-in-out .5s;
+
+    &:hover {
+        box-shadow: 0rem 0rem .5rem .2rem rgba($veryDarkBlue, .9);
+    }
+
+    &:focus {
+        box-shadow: inset 0rem 0rem .5rem .2rem rgba($veryDarkBlue, .9);
+    }
 }
 
 /* li {
