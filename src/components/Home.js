@@ -7,8 +7,12 @@ class Home extends Component {
         countriesAll: [],
         isLoaded: false,
         option: "all",
+        optionUpper: "",
         searchValue: "",
         filtered: "",
+        filterActive: false,
+        regionChoosed: false,
+
     }
 
     componentDidMount() {
@@ -65,12 +69,6 @@ class Home extends Component {
 
     }
 
-    handleChangeRegion = (e) => {
-        this.setState({
-            option: e.target.value,
-        })
-    }
-
     handleSearchCountry = (e) => {
         this.setState({
             searchValue: e.target.value,
@@ -90,9 +88,39 @@ class Home extends Component {
         });
     }
 
+    //Toggle, jesli uzytkownik kliknie na Filter By Region to niech filter activ zmieni sie na true, jesli kliknie ponownie to na false
+    handleFilterRegion = () => {
+        this.setState({
+            filterActive: !this.state.filterActive,
+        })
+    }
+
+    //sluzy do zamkniecia dropdown listy zwiazanej z filtrowaniej jesli jest ona otwarta i uzytkownik kliknie w obszar diva homa
+    handleCloseGlobalFilterRegion = () => {
+        if (this.state.filterActive === true) {
+            this.setState({
+                filterActive: false,
+            })
+        }
+    }
+
+
+    //Pobranie wartosci kliknietej opcji w dropdown list, ustawienie stanu, jesli opcja zostanie wybrana to filterActive bedzie ustawiony na false w celu zamkniecia dropDown listy, regionChoosed zostaje ustawiony na true, w celu uzycia warunku, ktory zastapi Filter By Region wybrana opcja
+    handleChangeRegion = (e) => {
+        let value = e.currentTarget.getAttribute('value')
+        let valueUpper = value.slice(0, 1).toUpperCase() + value.slice(1, value.length);
+        this.setState({
+            option: value,
+            optionUpper: valueUpper,
+            regionChoosed: true,
+            filterActive: false,
+        })
+    }
+
     render() {
+        console.log(this.state.filterActive)
         return (
-            <div className='home'>
+            <div className='home' onClick={this.handleCloseGlobalFilterRegion}>
                 <div className="filter">
                     <div className="filter__searchPanel">
                         <svg className="filter__icon" version="1.1" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20">
@@ -101,19 +129,25 @@ class Home extends Component {
                         </svg>
                         <input className="filter__searchInput" type="text" placeholder="Search for a country..." value={this.state.searchValue} onChange={this.handleSearchCountry} />
                     </div>
+
                     <div className="filter__selectPanel">
-                        {/* <label htmlFor="lang"> */}
                         <NavLink to="./">
-                            <select id="lang" className="filter__selectLabel" onChange={this.handleChangeRegion} value={this.state.option}>
-                                <option value="all">Filter by Region</option>
-                                <option value="africa">Africa</option>
-                                <option value="americas">America</option>
-                                <option value="asia">Asia</option>
-                                <option value="europe">Europe</option>
-                                <option value="oceania">Oceania</option>
-                            </select>
+                            <span onClick={this.handleFilterRegion} className={this.state.filterActive ? "filter__chooseRegion filter__chooseRegion--caretUp" : "filter__chooseRegion filter__chooseRegion--caretDown"}>{this.state.regionChoosed ? this.state.optionUpper : "Filter by Region"}</span>
+                            <ul className={this.state.filterActive ? "filter__dropdown visible" : "filter__dropdown"}>
+                                <li className="filter__dropdown-item filter__dropdown-item--all" value="all"
+                                    onClick={this.handleChangeRegion}>All</li>
+                                <li className="filter__dropdown-item filter__dropdown-item--africa" value="africa"
+                                    onClick={this.handleChangeRegion}>Africa</li>
+                                <li className="filter__dropdown-item filter__dropdown-item--americas" value="americas"
+                                    onClick={this.handleChangeRegion}>Americas</li>
+                                <li className="filter__dropdown-item filter__dropdown-item--asia" value="asia"
+                                    onClick={this.handleChangeRegion}>Asia</li>
+                                <li className="filter__dropdown-item filter__dropdown-item--europe" value="europe"
+                                    onClick={this.handleChangeRegion}>Europe</li>
+                                <li className="filter__dropdown-item filter__dropdown-item--oceania" value="oceania"
+                                    onClick={this.handleChangeRegion}>Oceania</li>
+                            </ul>
                         </NavLink>
-                        {/* </label> */}
                     </div>
                 </div>
                 {/* Warunek 1 jeśli dane jeszcze się nie załadowały, to niech wyświetli się napis Loading */}
