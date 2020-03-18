@@ -6,6 +6,26 @@
     grid-template-columns: repeat(8, 1fr);
 } */
 
+@mixin flexSpaceBetweenCenter {
+    display: flex;
+    justify-content: space-between;
+    align-content: center;
+}
+
+@mixin regionanddropDownListSettings {
+    width: 20rem;
+    outline: 0;
+    background-color: $white;
+    color: inherit;
+    font-family: inherit;
+    font-size: 1.6rem;
+    font-weight: 600;
+    border: 0;
+    border-radius: .3rem;
+    box-shadow: 1rem 1rem 4rem rgba($veryDarkBlue, .20);
+    cursor: pointer;
+}
+
 .home {
     padding: 3rem;
 }
@@ -35,14 +55,15 @@
         width: 90%;
         background-color: $white;
         padding: 1.5rem;
-        padding-left: 4rem;
+        padding-left: 5rem;
         border: 0;
         border-radius: .3rem;
         box-shadow: 1rem 1rem 4rem rgba($veryDarkBlue, .20);
-        margin-left: -3rem;
+        margin-left: -3.5rem;
         font-family: inherit;
         color: inherit;
         font-size: 1.6rem;
+        font-weight: 600;
         transition: 1s;
 
         &::placeholder {
@@ -66,39 +87,88 @@
     &__selectPanel {
         display: flex;
         justify-content: flex-end;
+        position: relative;
+        z-index: 100;
 
         @media only screen and (max-width: 768px) {
             justify-content: flex-start;
         }
     }
 
-    &__selectLabel {
-        width: 20rem;
-        outline: 0;
+    &__chooseRegion {
+        @include regionanddropDownListSettings();
         padding: 1.5rem;
-        background-color: $white;
-        font-family: inherit;
-        color: inherit;
-        font-size: 1.6rem;
-        border: 0;
-        border-radius: .3rem;
-        box-shadow: 1rem 1rem 4rem rgba($veryDarkBlue, .20);
-        //appearance: none; // pozbycie sie strzalki
+        @include flexSpaceBetweenCenter();
+        transition: ease-in-out 1s;
+
+        &--caretDown {
+            &::after {
+                content: '\f0d7';
+                font-weight: 900;
+                font-family: 'Font Awesome 5 Free';
+            }
+        }
+
+        &--caretUp {
+            &::after {
+                content: '\f0d8';
+                font-weight: 900;
+                font-family: 'Font Awesome 5 Free';
+            }
+        }
+    }
+
+    &__dropdown {
+        @include regionanddropDownListSettings();
+        margin-top: 1rem;
+        display: none;
+        position: absolute;
+        top: 100%;
+
+        &-item {
+            padding: .5rem 1.5rem;
+            @include flexSpaceBetweenCenter();
+            transition: ease-in-out 1s;
+
+            &:hover {
+                background-color: $darkBlue;
+                color: $white;
+            }
+
+            &--all::after,
+            &--africa::after,
+            &--americas::after,
+            &--asia::after,
+            &--europe::after,
+            &--oceania::after {
+                font-weight: 900;
+                font-family: 'Font Awesome 5 Free';
+            }
+
+            &--all::after {
+                content: '\f0ac';
+            }
+
+            &--africa::after {
+                content: '\f57c';
+            }
+
+            &--americas::after {
+                content: '\f57d';
+            }
+
+            &--asia::after {
+                content: '\f57e';
+            }
+
+            &--europe::after {
+                content: '\f7a2';
+            }
+
+            &--oceania::after {
+                content: '\f57e';
+            }
+        }
     }
 
 }
-
-/* .filter {
-    padding: 2.5rem 0;
-    display: inline-block;
-    //justify-content: space-between;
-    //align-items: center;
-
-    &__search {
-        background-color: $white;
-        padding: 1rem;
-        border: 1px solid $white;
-        border-radius: 1%;
-        box-shadow: 1rem 1rem 4rem rgba($veryDarkBlue, .20);
-    } 
-}*/
