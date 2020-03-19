@@ -121,14 +121,16 @@
     &__dropdown {
         @include regionanddropDownListSettings();
         margin-top: 1rem;
-        display: none;
+        opacity: 0;
         position: absolute;
         top: 100%;
+        visibility: hidden;
+        transition: ease-in-out .5s;
 
         &-item {
             padding: .5rem 1.5rem;
             @include flexSpaceBetweenCenter();
-            transition: ease-in-out 1s;
+            transition: ease-in-out .5s;
 
             &:hover {
                 background-color: $darkBlue;
