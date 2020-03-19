@@ -1,6 +1,7 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import "../style/Country.scss";
+import { populationDotted } from "./Functions";
 
 const Country = (props) => {
 
@@ -43,7 +44,7 @@ const Country = (props) => {
                             <h4 className="country-details__headingQuaternary">Native Name:</h4>{props.nativeName}
                         </li>
                         <li className="info-item">
-                            <h4 className="country-details__headingQuaternary">Population:</h4>{props.population}
+                            <h4 className="country-details__headingQuaternary">Population:</h4>{populationDotted(props.population)}
                         </li>
                         <li className="info-item">
                             <h4 className="country-details__headingQuaternary">Region:</h4>{props.region}
