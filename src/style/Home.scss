@@ -1,11 +1,5 @@
 @import "../style/App.scss";
 
-
-/* .home {
-    display: grid;
-    grid-template-columns: repeat(8, 1fr);
-} */
-
 @mixin flexSpaceBetweenCenter {
     display: flex;
     justify-content: space-between;
