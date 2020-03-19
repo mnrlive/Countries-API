@@ -57,16 +57,9 @@ $white: hsl(0, 0%, 100%); //(Dark Mode Text & Light Mode Elements)
 }
 
 .visible {
-    display: inline;
+    visibility: visible;
+    opacity: 1;
 }
-
-/* li {
-    color: black;
-} */
-
-/* span {
-    color: black;
-} */
 
 html {
     box-sizing: border-box;
