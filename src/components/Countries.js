@@ -1,11 +1,9 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import '../style/Countries.scss'
-const Countries = (props) => {
+import { populationDotted } from "./Functions";
 
-    function populationDotted(x) {
-        return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
-    }
+const Countries = (props) => {
 
     const countries = props.countriesAll.map((country, index) => (
 
@@ -14,7 +12,7 @@ const Countries = (props) => {
             {/* badz sposob z alpha3Code zeby bylo zgodne z linkami z border, np border IRN to w alpha3Code Iranu tez IRN, ale juz cioc to IRI wiec linki sa sprzeczne, kilka jest takich wyjatkow, alpha3Code===border */}
             <div className="countryCard" key={index}>
                 <div className="countryCard__flag">
-                    <img className="countryCard__flagImg" src={country.flag} alt={`${country.name} flag`} />
+                    <img className={`countryCard__flagImg countryCard__flagImg--${country.alpha3Code}`} src={country.flag} alt={`${country.name} flag`} />
                 </div>
                 <div className="countryCard__description">
                     <h1 className="countryCard__primary">{country.name}</h1>
