@@ -31,13 +31,13 @@
 
 .country-details {
     display: grid;
-    //grid-template-columns: repeat(2, 1fr);
-    grid-template-columns: minmax(10rem, 55rem);
+    grid-template-columns: repeat(2, 1fr);
+    //grid-template-columns: minmax(10rem, 55rem);
     grid-template-areas: "flag info";
     gap: 10rem;
 
     @media only screen and (max-width: 1100px) {
-        //grid-template-columns: 1fr;
+        grid-template-columns: minmax(10rem, 55rem);
         grid-template-areas: "flag""info";
         justify-content: center;
         gap: 5rem;
@@ -54,6 +54,26 @@
         max-height: 40rem;
         box-shadow: 0rem 0rem 1rem .3rem rgba($veryDarkBlue, .50);
         object-fit: cover;
+        //object-position: top;
+
+        &--CHN {
+            object-position: top;
+        }
+
+        &--COD,
+        &--BTN,
+        &--NPL {
+            object-fit: fill;
+        }
+
+        &--CAF {
+            object-position: top;
+
+            @media only screen and (min-width: 1556px) {
+                max-height: 60rem;
+                object-position: center;
+            }
+        }
 
         @media only screen and (max-width: 1400px) {
             height: auto;
@@ -63,13 +83,15 @@
     &__info {
         grid-area: info;
         display: grid;
-        grid-template-columns: repeat(2, 1fr);
+        //grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: 30rem 1fr;
         grid-template-rows: auto;
         grid-template-areas: ". .""infoPartOne infoPartTwo""infoPartThree infoPartThree";
         row-gap: 1.5rem;
         align-content: center;
 
         @media only screen and (max-width: 1100px) {
+            grid-template-columns: repeat(2, 1fr);
             grid-template-areas: ". .""infoPartOne infoPartOne""infoPartTwo infoPartTwo""infoPartThree infoPartThree";
         }
     }
@@ -79,7 +101,7 @@
         white-space: nowrap;
 
         @media only screen and (max-width: 1100px) {
-            font-size: 3rem;
+            //font-size: 3rem;
             padding-bottom: 1rem;
             font-size: calc(1rem + 2.5vw);
             white-space: normal;
@@ -95,6 +117,7 @@
     display: flex;
     padding-bottom: 1rem;
     font-weight: 600;
+    //flex-wrap: wrap;
 
     &:not(:last-child) {
         padding-right: 1rem;
@@ -106,8 +129,8 @@
     font-size: calc(1rem + .40vw);
 
     @media only screen and (max-width: 1100px) {
-        font-size: 2rem;
-        font-size: calc(1rem + 2vw);
+        //font-size: 2rem;
+        font-size: calc(1rem + 1vw);
     }
 
     &--partOne {
@@ -129,10 +152,12 @@
 
     &__curriences {
         display: flex;
+        flex-wrap: wrap;
     }
 
     &__languages {
         display: flex;
+        flex-wrap: wrap;
     }
 
 
@@ -168,8 +193,8 @@
         padding: .5rem 3rem;
 
         @media only screen and (max-width: 1100px) {
-            font-size: 2rem;
-            font-size: calc(1rem + 2vw);
+            //font-size: 2rem;
+            font-size: calc(1rem + 1vw);
         }
 
     }
