@@ -9,7 +9,7 @@ class Header extends Component {
         darkMode: false,
     }
 
-    darktStyle = 'body { background-color: hsl(207, 26%, 17%); } * {color:hsl(0, 0%, 100%);} .header {background-color: hsl(209, 23%, 22%)} .countryCard__description, .filter__chooseRegion, .filter__dropdown, .filter__searchInput, .btn{background-color: hsl(209, 23%, 22%)} .filter__dropdown-item:hover{color:hsl(200, 15%, 8%); background-color: hsl(0,0%,100%);} .countryCard__description {border: 0} *:active{color:hsl(0, 0%, 100%);} .btn:hover{box-shadow: 0rem 0rem .5rem .2rem rgba(255, 255, 255, 0.4)} .btn:focus{box-shadow: inset 0rem 0rem .5rem .2rem rgba(255, 255, 255, 0.4)}';
+    darktStyle = 'body { background-color: hsl(207, 26%, 17%); } * {color:hsl(0, 0%, 100%);} .header {background-color: hsl(209, 23%, 22%)} .countryCard__description, .filter__chooseRegion, .filter__dropdown, .filter__searchInput, .scroll, .btn{background-color: hsl(209, 23%, 22%)} .filter__dropdown-item:hover{color:hsl(200, 15%, 8%); background-color: hsl(0,0%,100%);} .countryCard__description {border: 0} *:active, .scroll__arrowUp{color:hsl(0, 0%, 100%);} .scroll, .btn:hover{box-shadow: 0rem 0rem .5rem .2rem rgba(255, 255, 255, 0.4)} .btn:focus{box-shadow: inset 0rem 0rem .5rem .2rem rgba(255, 255, 255, 0.4)}';
 
     handleSlider = () => {
         this.setState({
