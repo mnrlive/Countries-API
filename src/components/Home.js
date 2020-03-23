@@ -12,10 +12,24 @@ class Home extends Component {
         filtered: "",
         filterActive: false,
         regionChoosed: false,
+        scroll: false,
 
     }
 
     componentDidMount() {
+        //Nasłuchiwanie scrolla, który umożliwi powrót na początek strony
+        window.addEventListener('scroll', () => {
+            const beginScroll = window.scrollY < 100;
+            if (beginScroll === false) {
+                this.setState({
+                    scroll: true,
+                })
+            } else {
+                this.setState({
+                    scroll: false,
+                })
+            }
+        })
         fetch('https://restcountries.eu/rest/v2/all')
             .then(response => {
                 console.log(response.ok);
@@ -152,7 +166,10 @@ class Home extends Component {
                 </div>
                 {/* Warunek 1 jeśli dane jeszcze się nie załadowały, to niech wyświetli się napis Loading */}
                 {/* Warunek 2 jeśli tablica pofiltrowana jest pusta (bo nic nie ma w inpucie, bądź została wybrana jakaś opcja z droplisty) to wyświetl tablicę countries (czyli bezpośrednio z api), jeśli filtered nie jest puste to wyświetl kraje pofiltrowane */}
-                {this.state.isLoaded ? <Countries countriesAll={this.state.filtered === "" ? this.state.countriesAll : this.state.filtered} /> : "Loading"}
+                {this.state.isLoaded ? <Countries countriesAll={this.state.filtered === "" ? this.state.countriesAll : this.state.filtered} /> : <span className='loading'>Loading...</span>}
+                <div className={this.state.scroll ? 'scroll' : null} onClick={() => { window.scrollTo(0, 0) }}>
+                    <i className={this.state.scroll ? "fas fa-arrow-up scroll__arrowUp" : null}></i>
+                </div>
             </div >
         );
     }
