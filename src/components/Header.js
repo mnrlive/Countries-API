@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
 import '../style/Header.scss';
-//import Home from '../components/Home';
-/* import Icons from '../img/sprite.svg'; */
 
 class Header extends Component {
 
@@ -23,10 +21,6 @@ class Header extends Component {
                 {this.state.darkMode ? <style>{this.darktStyle}</style> : null}
                 <header className="header">
                     <h1 className="header__logo">Where in the world?</h1>
-                    {/* <svg className="darkLightmode__icon"> */}
-                    {/* <use xlinkHref={`${Icons}#icon-moon}`}></use> */}
-                    {/* <use xlinkHref="img/sprite.svg#icon-moon"></use> */}
-                    {/* </svg> */}
                     <div className="header__changeMode">
                         <input className="header__change-input" type="checkbox" name="mode" id="mode" onChange={this.handleSlider} />
                         <label htmlFor="mode" className='header__darkLightMode'>

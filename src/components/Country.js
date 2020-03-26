@@ -26,7 +26,6 @@ const Country = (props) => {
 
     return (
         <div className="country-container">
-            {/* <NavLink to={country.name} className="navLink"><p>{country.name}</p></NavLink> */}
             <div className="country-container__back">
                 <NavLink to="/" className="navLink">
                     <button className="btn country-container__button-back">Back</button>
@@ -75,12 +74,8 @@ const Country = (props) => {
                     </ul>
                 </div>
             </div>
-            {/* <p>{props.borders}</p> */}
         </div>
     );
 }
-/* 
-name={country.name} nativeName={country.nativeName} population={country.population}
-          region={country.region} subRegion={country.subregion} capital={country.capital} topLevelDomain={country.topLevelDomain} curriences={country.curriences} languages={country.languages} borders={country.borders} */
 
 export default Country;
