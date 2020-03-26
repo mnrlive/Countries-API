@@ -32,7 +32,6 @@
 .country-details {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    //grid-template-columns: minmax(10rem, 55rem);
     grid-template-areas: "flag info";
     gap: 10rem;
 
@@ -54,7 +53,6 @@
         max-height: 40rem;
         box-shadow: 0rem 0rem 1rem .3rem rgba($veryDarkBlue, .50);
         object-fit: cover;
-        //object-position: top;
 
         &--CHN {
             object-position: top;
@@ -83,7 +81,6 @@
     &__info {
         grid-area: info;
         display: grid;
-        //grid-template-columns: repeat(2, 1fr);
         grid-template-columns: 30rem 1fr;
         grid-template-rows: auto;
         grid-template-areas: ". .""infoPartOne infoPartTwo""infoPartThree infoPartThree";
@@ -101,7 +98,6 @@
         white-space: nowrap;
 
         @media only screen and (max-width: 1100px) {
-            //font-size: 3rem;
             padding-bottom: 1rem;
             font-size: calc(1rem + 2.5vw);
             white-space: normal;
@@ -117,7 +113,6 @@
     display: flex;
     padding-bottom: 1rem;
     font-weight: 600;
-    //flex-wrap: wrap;
 
     &:not(:last-child) {
         padding-right: 1rem;
@@ -129,7 +124,6 @@
     font-size: calc(1rem + .40vw);
 
     @media only screen and (max-width: 1100px) {
-        //font-size: 2rem;
         font-size: calc(1rem + 1vw);
     }
 
@@ -193,7 +187,6 @@
         padding: .5rem 3rem;
 
         @media only screen and (max-width: 1100px) {
-            //font-size: 2rem;
             font-size: calc(1rem + 1vw);
         }
 

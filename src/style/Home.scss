@@ -144,6 +144,8 @@
         //w celu poradzenia sobie z fill bez przekazywania props, narazie jest szary, ale klikniecia darkMode, powoduje, ze wszystkie elementy zyskuja kolor bialy wiec color z darkGray zmienia sie na white i fill przyjmuje white
         color: $darkGray;
         fill: currentColor;
+        width: 2rem;
+        height: 2rem;
     }
 
     &__selectPanel {
