@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
-import { HashRouter as Router, Switch, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import Header from '../components/Header';
 import Home from '../components/Home';
 import Country from '../components/Country';
 import Footer from '../components/Footer';
+import WrongPage from '../components/WrongPage';
 import '../style/App.scss';
 
 class App extends Component {
@@ -69,6 +70,8 @@ class App extends Component {
                 <Route exact path="/" render={() => <main className="main main--home"><Home /> </main>}
                 />
                 {routeCountries}
+                <Route render={() => <main className="main main--error"><WrongPage /></main>}
+                />
               </Switch>
               <Footer />
             </div>
