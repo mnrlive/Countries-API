@@ -16,7 +16,7 @@ self.__precacheManifest = [
     "url": "/REST-Countries-API/static/js/2.f8ca01c3.chunk.js"
   },
   {
-    "revision": "ffdceca9f9af191ba32c073021f3aed0",
+    "revision": "b2a3cae4066e051fa5c0f4c8b9c421f1",
     "url": "/REST-Countries-API/index.html"
   }
 ];
