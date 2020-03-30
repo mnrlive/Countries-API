@@ -15,7 +15,6 @@ class Header extends Component {
         })
     }
     render() {
-        console.log(this.state.darkMode);
         return (
             <>
                 {this.state.darkMode ? <style>{this.darktStyle}</style> : null}

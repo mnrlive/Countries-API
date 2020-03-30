@@ -31,9 +31,7 @@ class App extends Component {
   componentDidMount() {
     fetch('https://restcountries.eu/rest/v2/all')
       .then(response => {
-        console.log(response.ok);
         if (response.ok) {
-          console.log(response);
           return response;
         }
         else {

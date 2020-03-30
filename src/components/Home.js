@@ -22,9 +22,7 @@ class Home extends Component {
 
         fetch('https://restcountries.eu/rest/v2/all')
             .then(response => {
-                console.log(response.ok);
                 if (response.ok) {
-                    console.log(response);
                     return response;
                 }
                 else {
@@ -33,7 +31,6 @@ class Home extends Component {
             })
             .then(response => response.json())
             .then(data => {
-                console.log(data);
                 this.setState({
                     countriesAll: data,
                     isLoaded: true,
@@ -49,9 +46,7 @@ class Home extends Component {
             //wyszło https://restcountries.eu/rest/v2/region/europe
             fetch(`https://restcountries.eu/rest/v2/${this.state.option === "all" ? "" : "region/"}${this.state.option}`)
                 .then(response => {
-                    console.log(response.ok);
                     if (response.ok) {
-                        console.log(response);
                         return response;
                     }
                     else {
@@ -60,7 +55,6 @@ class Home extends Component {
                 })
                 .then(response => response.json())
                 .then(data => {
-                    console.log(data);
                     this.setState({
                         filtered: "", //wyczysc tablice filtered, jesli jest ona pusta to wyswietla sie wszystkie opcje z danej kategorii (wiaze sie z inputem, czyli jesli wybiore jakas opcje to wyzeruj tablice filtered i wartosc z input)
                         searchValue: "", //w celu wyczyszczenia inputa wyszukiwania, przy zmianie regionu
@@ -140,7 +134,6 @@ class Home extends Component {
     }
 
     render() {
-        console.log(this.state.filterActive)
         return (
             <div className='home' onClick={this.handleCloseGlobalFilterRegion}>
                 <div className="filter">
