@@ -167,7 +167,7 @@ class Home extends Component {
                 </div>
                 {/* Warunek 1 jeśli dane jeszcze się nie załadowały, to niech wyświetli się napis Loading */}
                 {/* Warunek 2 jeśli tablica pofiltrowana jest pusta (bo nic nie ma w inpucie, bądź została wybrana jakaś opcja z droplisty) to wyświetl tablicę countries (czyli bezpośrednio z api), jeśli filtered nie jest puste to wyświetl kraje pofiltrowane */}
-                {this.state.isLoaded ? <Countries countriesAll={this.state.filtered === "" ? this.state.countriesAll : this.state.filtered} /> : <div className='loading'><span className='loader'></span></div>}
+                {this.state.isLoaded ? <Countries countriesAll={this.state.filtered === "" ? this.state.countriesAll : this.state.filtered} /> : <div className='loading'><span className='loading__loader'></span></div>}
                 <div className={this.state.scroll ? 'scroll' : null} onClick={() => { window.scrollTo(0, 0) }}>
                     <i className={this.state.scroll ? "fas fa-arrow-up scroll__arrowUp" : null}></i>
                 </div>
