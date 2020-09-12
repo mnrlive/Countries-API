@@ -1,13 +1,13 @@
 {
-  "main.css": "/Countries-API/static/css/main.164f244a.chunk.css",
-  "main.js": "/Countries-API/static/js/main.c8236599.chunk.js",
-  "main.js.map": "/Countries-API/static/js/main.c8236599.chunk.js.map",
+  "main.css": "/Countries-API/static/css/main.3f9d7def.chunk.css",
+  "main.js": "/Countries-API/static/js/main.b6161669.chunk.js",
+  "main.js.map": "/Countries-API/static/js/main.b6161669.chunk.js.map",
   "runtime~main.js": "/Countries-API/static/js/runtime~main.52a4f1bd.js",
   "runtime~main.js.map": "/Countries-API/static/js/runtime~main.52a4f1bd.js.map",
-  "static/js/2.f611c60f.chunk.js": "/Countries-API/static/js/2.f611c60f.chunk.js",
-  "static/js/2.f611c60f.chunk.js.map": "/Countries-API/static/js/2.f611c60f.chunk.js.map",
+  "static/js/2.b7e7ddfa.chunk.js": "/Countries-API/static/js/2.b7e7ddfa.chunk.js",
+  "static/js/2.b7e7ddfa.chunk.js.map": "/Countries-API/static/js/2.b7e7ddfa.chunk.js.map",
   "index.html": "/Countries-API/index.html",
-  "precache-manifest.7dbda19e101facca2e4ec83186932534.js": "/Countries-API/precache-manifest.7dbda19e101facca2e4ec83186932534.js",
+  "precache-manifest.31104035ebac75ae9ca2ba085309d11b.js": "/Countries-API/precache-manifest.31104035ebac75ae9ca2ba085309d11b.js",
   "service-worker.js": "/Countries-API/service-worker.js",
-  "static/css/main.164f244a.chunk.css.map": "/Countries-API/static/css/main.164f244a.chunk.css.map"
+  "static/css/main.3f9d7def.chunk.css.map": "/Countries-API/static/css/main.3f9d7def.chunk.css.map"
 }
